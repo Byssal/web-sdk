@@ -14,3 +14,14 @@ export const ssr = false;
 // the URL for about page witll be /about/ with 'always'
 // https://kit.svelte.dev/docs/page-options#trailingslash
 export const trailingSlash = 'ignore';
+
+// DEV-only: install the offline fake RGS before anything renders, so <Authenticate>'s
+// /wallet/authenticate call is intercepted and you get a demo balance + playable spins.
+// Guarded by import.meta.env.DEV so it is completely absent from production builds.
+export const load = async () => {
+	if (import.meta.env.DEV && typeof window !== 'undefined') {
+		const { installMockRgs } = await import('../dev/mockRgs');
+		installMockRgs();
+	}
+	return {};
+};
