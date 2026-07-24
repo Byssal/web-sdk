@@ -246,8 +246,54 @@ export default {
     "type": "updateTumbleWin",
     "amount": 140
   },
-  "tumbleBoard": {
+  "updateGrid": {
     "index": 11,
+    "type": "updateGrid",
+    "gridMultipliers": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    ]
+  },
+  "tumbleBoard": {
+    "index": 12,
     "type": "tumbleBoard",
     "newSymbols": [
       [],
@@ -321,70 +367,24 @@ export default {
     ]
   },
   "setWin": {
-    "index": 12,
+    "index": 13,
     "type": "setWin",
     "amount": 140,
     "winLevel": 3
   },
-  "updateGrid": {
-    "index": 19,
-    "type": "updateGrid",
-    "gridMultipliers": [
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        2,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        5,
-        0,
-        2,
-        10,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    ]
-  },
   "freeSpinEnd": {
-    "index": 56,
+    "index": 47,
     "type": "freeSpinEnd",
-    "amount": 3750,
-    "winLevel": 5
+    "amount": 1860,
+    "winLevel": 4
   },
   "finalWin": {
-    "index": 57,
+    "index": 48,
     "type": "finalWin",
-    "amount": 3750
+    "amount": 1860
   },
   "freeSpinRetrigger": {
-    "index": 15,
+    "index": 17,
     "type": "freeSpinRetrigger",
     "totalFs": 13,
     "positions": [
