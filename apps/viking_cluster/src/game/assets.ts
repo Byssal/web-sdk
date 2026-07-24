@@ -35,6 +35,26 @@ export default {
 		src: new URL('../../assets/sprites/vikingBackground/logo.png', import.meta.url).href,
 		preload: true,
 	},
+	vikingFrame: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/vikingBackground/frame.png', import.meta.url).href,
+		preload: true,
+	},
+	iconAutospin: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/vikingIcons/autospin.png', import.meta.url).href,
+		preload: true,
+	},
+	iconBet: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/vikingIcons/bet.png', import.meta.url).href,
+		preload: true,
+	},
+	iconTurbo: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/vikingIcons/turbo.png', import.meta.url).href,
+		preload: true,
+	},
 	H1: {
 		type: 'spine',
 		src: {

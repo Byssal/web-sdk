@@ -4,7 +4,7 @@
 	import { EnablePixiExtension } from 'components-pixi';
 	import { EnableHotkey } from 'components-shared';
 	import { MainContainer } from 'components-layout';
-	import { App, Sprite, REM } from 'pixi-svelte';
+	import { App, Sprite } from 'pixi-svelte';
 	import { stateModal } from 'state-shared';
 
 	import { UI, UiGameName } from 'components-ui-pixi';
@@ -63,6 +63,18 @@
 		<Sound />
 
 		<MainContainer>
+			<Sprite
+				key="vikingLogo"
+				anchor={{ x: 0.5, y: 0.5 }}
+				x={context.stateGameDerived.boardLayout().x}
+				y={context.stateGameDerived.boardLayout().y -
+					context.stateGameDerived.boardLayout().height * 0.95}
+				width={context.stateGameDerived.boardLayout().width * 1.25}
+				height={(context.stateGameDerived.boardLayout().width * 1.25 * 420) / 1200}
+			/>
+		</MainContainer>
+
+		<MainContainer>
 			<BoardFrame />
 		</MainContainer>
 
@@ -86,9 +98,7 @@
 			{#snippet gameName()}
 				<UiGameName name="VIKING CLUSTER RAID" />
 			{/snippet}
-			{#snippet logo()}
-				<Sprite key="vikingLogo" anchor={{ x: 1, y: 0 }} width={REM * 13} height={REM * 4.55} />
-			{/snippet}
+			{#snippet logo()}{/snippet}
 		</UI>
 		<Win />
 		<FreeSpinIntro />

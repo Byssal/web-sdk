@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Container, Text } from 'pixi-svelte';
+	import { Container, Text, Sprite } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
 	import { OnHotkey } from 'components-shared';
 	import { stateBetDerived } from 'state-shared';
@@ -31,21 +31,28 @@
 								}
 							: {}}
 					/>
-					<Text
-						anchor={0.5}
-						text={['spin_default', 'spin_disabled'].includes(key)
-							? i18nDerived.bet()
-							: i18nDerived.stop()}
-						style={{
-							align: 'center',
-							wordWrap: true,
-							wordWrapWidth: 200,
-							fontFamily: 'proxima-nova',
-							fontWeight: '600',
-							fontSize: UI_BASE_FONT_SIZE * 0.9,
-							fill: 0xffffff,
-						}}
-					/>
+					{#if ['spin_default', 'spin_disabled'].includes(key)}
+						<Sprite
+							anchor={0.5}
+							key="iconBet"
+							width={sizes.height * 0.66}
+							height={sizes.height * 0.66}
+						/>
+					{:else}
+						<Text
+							anchor={0.5}
+							text={i18nDerived.stop()}
+							style={{
+								align: 'center',
+								wordWrap: true,
+								wordWrapWidth: 200,
+								fontFamily: 'proxima-nova',
+								fontWeight: '600',
+								fontSize: UI_BASE_FONT_SIZE * 0.9,
+								fill: 0xf5e082,
+							}}
+						/>
+					{/if}
 				</Container>
 			{/snippet}
 		</Button>
