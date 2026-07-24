@@ -22,7 +22,11 @@
 			wins = emitterEvent.wins.map((rawWin) => ({ ...rawWin, oncomplete: () => {} }));
 			const gerPromises = () =>
 				wins.map(async (win) => {
-					await waitForResolve((resolve) => (win.oncomplete = resolve));
+					// Safety net so a stuck count-up can never freeze the cascade.
+					await Promise.race([
+						waitForResolve((resolve) => (win.oncomplete = resolve)),
+						new Promise((resolve) => setTimeout(resolve, 2500)),
+					]);
 				});
 			await Promise.all(gerPromises());
 			wins = [];

@@ -86,7 +86,11 @@
 				explodingPositions.map(async (position) => {
 					const tumbleSymbol = context.stateGame.tumbleBoardBase[position.reel][position.row];
 					tumbleSymbol.symbolState = 'explosion';
-					await waitForResolve((resolve) => (tumbleSymbol.oncomplete = resolve));
+					// Safety net: never wait forever for an explosion to signal completion.
+					await Promise.race([
+						waitForResolve((resolve) => (tumbleSymbol.oncomplete = resolve)),
+						new Promise((resolve) => setTimeout(resolve, 1200)),
+					]);
 				});
 
 			await Promise.all(getPromises());
@@ -115,12 +119,21 @@
 								if (symbolIndex > 0 && symbolIndex < tumbleReel.length - 1) {
 									tumbleSymbol.symbolState = 'land';
 									context.stateGameDerived.onSymbolLand({ rawSymbol: tumbleSymbol.rawSymbol });
-									await waitForResolve((resolve) => {
-										tumbleSymbol.oncomplete = () => {
-											tumbleSymbol.symbolState = 'static';
-											resolve();
-										};
-									});
+									// Safety net: settle the symbol even if 'land' never signals completion.
+									await Promise.race([
+										waitForResolve((resolve) => {
+											tumbleSymbol.oncomplete = () => {
+												tumbleSymbol.symbolState = 'static';
+												resolve();
+											};
+										}),
+										new Promise<void>((resolve) =>
+											setTimeout(() => {
+												tumbleSymbol.symbolState = 'static';
+												resolve();
+											}, 1200),
+										),
+									]);
 								}
 							}
 						});
