@@ -31,7 +31,8 @@ let pendingWin = 0;
 const okStatus = { statusCode: 'OK', statusMessage: '' };
 const balanceObj = () => ({ amount: Math.round(balance * API), currency: CURRENCY });
 
-// Any "buy" mode (BONUS / SUPER) serves a bonus round; everything else is a base spin.
+// Cost multiplier charged per bet mode (matches the app's betModeMeta).
+const MODE_COST: Record<string, number> = { BASE: 1, BONUS: 100 };
 const BONUS_MODES = ['BONUS', 'SUPER'];
 const pickWeighted = (mode: string): Round => {
 	const pool = BONUS_MODES.includes(mode.toUpperCase()) ? data.bonus : data.base;
@@ -84,12 +85,14 @@ const handle = (url: string, body: any): Response => {
 	}
 
 	if (url.includes('/wallet/play')) {
-		const amount = (Number(body?.amount) || API) / API; // bet in currency
+		const amount = (Number(body?.amount) || API) / API; // base bet in currency
 		const mode = String(body?.mode || 'BASE');
-		balance = Math.max(0, balance - amount);
+		// Charge base bet x the mode's cost multiplier (Buy Bonus costs 100x).
+		const cost = amount * (MODE_COST[mode.toUpperCase()] || 1);
+		balance = Math.max(0, balance - cost);
 		const round = pickWeighted(mode);
 		// The math-sdk stores payoutMultiplier scaled x100 (e.g. 1000 = 10.00x),
-		// so divide by 100 to get the real multiplier before crediting the win.
+		// so divide by 100. Wins are relative to the base bet (not the buy cost).
 		pendingWin = ((round.payoutMultiplier || 0) / 100) * amount;
 		return json({
 			status: okStatus,
