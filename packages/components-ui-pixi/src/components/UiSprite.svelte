@@ -8,7 +8,8 @@
 	const props: Props = $props();
 </script>
 
-<Rectangle borderRadius={50} {...props} />
+<!-- Viking default look (dark wood panel + gold border); callers can override. -->
+<Rectangle borderRadius={40} backgroundColor={0x241a0f} borderColor={0xc79b3b} borderWidth={3} {...props} />
 
 <!-- ADD YOUR DESIGN -->
 

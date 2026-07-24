@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Text } from 'pixi-svelte';
-	import { WHITE } from 'constants-shared/colors';
 
 	import UiSprite from './UiSprite.svelte';
 	import { UI_BASE_FONT_SIZE } from '../constants';
@@ -17,13 +16,13 @@
 	const labelStyle = {
 		fontFamily: 'proxima-nova',
 		fontSize: UI_BASE_FONT_SIZE,
-		fill: WHITE,
+		fill: 0xc79b3b, // gold label
 	} as const;
 
 	const valueStyle = {
 		fontFamily: 'proxima-nova',
 		fontSize: UI_BASE_FONT_SIZE,
-		fill: WHITE,
+		fill: 0xf5e082, // bright gold value
 	} as const;
 </script>
 

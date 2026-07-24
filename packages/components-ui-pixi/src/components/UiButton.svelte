@@ -32,16 +32,18 @@
 			anchor={0.5}
 			width={buttonProps.sizes.width}
 			height={buttonProps.sizes.height}
-			backgroundColor={variant === 'dark' ? 0x000000 : 0xffffff}
+			backgroundColor={variant === 'dark' ? 0x2b1d10 : 0xf5e082}
+			borderColor={0xc79b3b}
+			borderWidth={4}
 			{...buttonProps.disabled
 				? {
-						backgroundColor: 0xaaaaaa,
+						backgroundColor: 0x5a5148,
 					}
 				: {}}
 			{...active
 				? {
 						borderWidth: 10,
-						borderColor: variant === 'dark' ? 0xffffff : 0x000000,
+						borderColor: 0xf5e082,
 					}
 				: {}}
 		/>
@@ -57,7 +59,7 @@
 				fontFamily: 'proxima-nova',
 				fontWeight: '600',
 				fontSize: UI_BASE_FONT_SIZE * 0.9,
-				fill: variant === 'dark' ? 0xffffff : 0x000000,
+				fill: variant === 'dark' ? 0xf5e082 : 0x2b1d10,
 			}}
 		/>
 
