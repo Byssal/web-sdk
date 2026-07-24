@@ -6,14 +6,13 @@ export const SYMBOL_SIZE = 80;
 
 export const REEL_PADDING = 0.53;
 
-// initial board: 6 reels x 7 rows (1 padding row top + 5 visible + 1 padding row bottom)
+// initial board: 5 reels (columns) x 8 rows (1 padding top + 6 visible + 1 padding bottom)
 export const INITIAL_BOARD: RawSymbol[][] = [
-	[{ name: 'L1' }, { name: 'H1' }, { name: 'L1' }, { name: 'L2' }, { name: 'L2' }, { name: 'L3' }, { name: 'H3' }],
-	[{ name: 'L2' }, { name: 'L2' }, { name: 'L3' }, { name: 'L2' }, { name: 'L2' }, { name: 'L3' }, { name: 'H2' }],
-	[{ name: 'L3' }, { name: 'H3' }, { name: 'L1' }, { name: 'L1' }, { name: 'H4' }, { name: 'L2' }, { name: 'H2' }],
-	[{ name: 'H4' }, { name: 'L1' }, { name: 'H2' }, { name: 'H2' }, { name: 'H4' }, { name: 'H2' }, { name: 'L3' }],
-	[{ name: 'L1' }, { name: 'L1' }, { name: 'H3' }, { name: 'H1' }, { name: 'H1' }, { name: 'L2' }, { name: 'L3' }],
-	[{ name: 'L1' }, { name: 'L2' }, { name: 'L2' }, { name: 'H1' }, { name: 'H4' }, { name: 'H4' }, { name: 'H2' }],
+	[{ name: 'L1' }, { name: 'H1' }, { name: 'L1' }, { name: 'L2' }, { name: 'L2' }, { name: 'L3' }, { name: 'H3' }, { name: 'L2' }],
+	[{ name: 'L2' }, { name: 'L2' }, { name: 'L3' }, { name: 'L2' }, { name: 'L2' }, { name: 'L3' }, { name: 'H2' }, { name: 'L1' }],
+	[{ name: 'L3' }, { name: 'H3' }, { name: 'L1' }, { name: 'L1' }, { name: 'H4' }, { name: 'L2' }, { name: 'H2' }, { name: 'L4' }],
+	[{ name: 'H4' }, { name: 'L1' }, { name: 'H2' }, { name: 'H2' }, { name: 'H4' }, { name: 'H2' }, { name: 'L3' }, { name: 'L2' }],
+	[{ name: 'L1' }, { name: 'L1' }, { name: 'H3' }, { name: 'H1' }, { name: 'H1' }, { name: 'L2' }, { name: 'L3' }, { name: 'H4' }],
 ];
 
 export const BOARD_DIMENSIONS = { x: INITIAL_BOARD.length, y: INITIAL_BOARD[0].length - 2 };

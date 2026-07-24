@@ -24,6 +24,17 @@ export default {
 	vl4: { type: 'sprite', src: new URL('../../assets/sprites/vikingSymbols/l4.png', import.meta.url).href },
 	vw: { type: 'sprite', src: new URL('../../assets/sprites/vikingSymbols/w.png', import.meta.url).href },
 	vs: { type: 'sprite', src: new URL('../../assets/sprites/vikingSymbols/s.png', import.meta.url).href },
+	// Viking background scene + title logo (generated art).
+	vikingBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/vikingBackground/bg_main.png', import.meta.url).href,
+		preload: true,
+	},
+	vikingLogo: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/vikingBackground/logo.png', import.meta.url).href,
+		preload: true,
+	},
 	H1: {
 		type: 'spine',
 		src: {
