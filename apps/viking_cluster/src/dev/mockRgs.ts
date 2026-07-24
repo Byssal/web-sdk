@@ -32,7 +32,7 @@ const okStatus = { statusCode: 'OK', statusMessage: '' };
 const balanceObj = () => ({ amount: Math.round(balance * API), currency: CURRENCY });
 
 // Cost multiplier charged per bet mode (matches the app's betModeMeta).
-const MODE_COST: Record<string, number> = { BASE: 1, RAID: 60, EXPEDITION: 120, RAGNAROK: 360 };
+const MODE_COST: Record<string, number> = { BASE: 1, RAID: 90, EXPEDITION: 350, RAGNAROK: 3000 };
 
 // Split the bonus rounds into per-tier pools by their enterBonus "reason", so each
 // buyable tier serves the matching bonus rounds.

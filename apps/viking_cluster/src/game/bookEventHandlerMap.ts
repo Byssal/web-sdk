@@ -65,10 +65,13 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 			await eventEmitter.broadcastAsync({
 				type: 'showClusterWinAmounts',
 				wins: bookEvent.wins.map((win) => {
+					// Show the base connection value, then the FULL multiplier applied to it:
+					// the summed grid multiplier (clusterMult) times the active bonus global
+					// multiplier. `win.win` is the real total from the math engine.
 					return {
 						win: win.meta.winWithoutMult,
-						mult: win.meta.globalMult,
-						result: win.meta.winWithoutMult * win.meta.globalMult,
+						mult: win.meta.clusterMult * win.meta.globalMult,
+						result: win.win,
 						reel: win.meta.overlay.reel,
 						row: win.meta.overlay.row,
 					};
