@@ -8,10 +8,34 @@
 
 	import messagesMap from '../i18n/messagesMap';
 
-	// This game only supports two bet modes: a normal spin and one Buy Bonus.
-	// Override the SDK's default (which also exposes ANTE / SUPERANTE / SUPERSPIN /
-	// SUPER "boost" modes we don't implement) so the UI only offers what works.
+	// Bet modes offered by this game: a normal spin plus three buyable bonus tiers
+	// (Raid / Expedition / Ragnarok). Overrides the SDK default (which also exposes
+	// ANTE / SUPERANTE / SUPERSPIN modes we don't implement).
 	const emptyAssets = { icon: '', dialogImage: '', dialogVolatility: '', volatility: '', button: '' };
+	const buyMode = (
+		mode: string,
+		costMultiplier: number,
+		title: string,
+		dialog: string,
+		description: string,
+	) => ({
+		mode,
+		costMultiplier,
+		type: 'buy' as const,
+		parent: '',
+		children: '',
+		assets: emptyAssets,
+		text: {
+			title,
+			dialog,
+			description,
+			button: 'BUY',
+			tickerIdle: 'PLACE YOUR BET',
+			tickerSpin: `${title} ACTIVATED`,
+			bannerText: '',
+		},
+		maxWin: 5000,
+	});
 	stateMeta.betModeMeta = {
 		BASE: {
 			mode: 'BASE',
@@ -23,24 +47,27 @@
 			text: { title: '', dialog: '', button: '', betAmountLabel: '', tickerIdle: '', tickerSpin: '', bannerText: '' },
 			maxWin: 5000,
 		},
-		BONUS: {
-			mode: 'BONUS',
-			costMultiplier: 100,
-			type: 'buy',
-			parent: '',
-			children: '',
-			assets: emptyAssets,
-			text: {
-				title: 'RAID BONUS',
-				dialog: 'Achète directement les tours gratuits pour 100x ta mise.',
-				description: 'Des multiplicateurs aléatoires peuvent apparaître pendant les tours gratuits.',
-				button: 'BUY',
-				tickerIdle: 'PLACE YOUR BET',
-				tickerSpin: 'BONUS ACTIVATED',
-				bannerText: '',
-			},
-			maxWin: 5000,
-		},
+		RAID: buyMode(
+			'RAID',
+			60,
+			'RAID',
+			'Achète 8 tours gratuits pour 60x ta mise.',
+			'Bonus classique : la grille de multiplicateurs se construit à chaque connexion.',
+		),
+		EXPEDITION: buyMode(
+			'EXPEDITION',
+			120,
+			'EXPEDITION',
+			'Achète 12 tours gratuits pour 120x ta mise.',
+			'Plus de tours gratuits pour laisser les multiplicateurs monter.',
+		),
+		RAGNAROK: buyMode(
+			'RAGNAROK',
+			360,
+			'RAGNAROK',
+			'Achète 12 tours gratuits pour 360x ta mise.',
+			'La grille de multiplicateurs démarre chaque tour à x4. Immense potentiel.',
+		),
 	};
 
 	type Props = { children: Snippet };

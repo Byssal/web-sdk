@@ -8,7 +8,7 @@
 	import { stateModal, stateBet } from 'state-shared';
 
 	import { UI, UiGameName } from 'components-ui-pixi';
-	import { GameVersion, Modals } from 'components-ui-html';
+	import { GameVersion, Modals, stateBonus } from 'components-ui-html';
 
 	import { getContext } from '../game/context';
 	import EnableSound from './EnableSound.svelte';
@@ -37,10 +37,10 @@
 	onMount(() => (context.stateLayout.showLoadingScreen = true));
 
 	context.eventEmitter.subscribeOnMount({
-		// One-click buy: skip the extra confirmation dialog and purchase directly.
-		// This game only has one buy mode (BONUS).
+		// One-click buy: skip the extra confirmation dialog and buy the selected
+		// tier (Raid / Expedition / Ragnarok) directly.
 		buyBonusConfirm: () => {
-			stateBet.activeBetModeKey = 'BONUS';
+			stateBet.activeBetModeKey = stateBonus.selectedBetModeKey;
 			stateModal.modal = null;
 			context.eventEmitter.broadcast({ type: 'bet' });
 		},

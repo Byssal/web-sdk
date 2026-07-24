@@ -6,5 +6,6 @@ import messagesMap from './src/i18n/messagesMap';
 import { i18nDerived } from './src/i18n/i18nDerived';
 
 export * from './src/types';
+export { stateBonus, stateBonusDerived } from './src/stateBonus.svelte';
 
 export { messagesMap, i18nDerived, Modals, GameVersion, GlobalStyle };

@@ -32,10 +32,32 @@ const okStatus = { statusCode: 'OK', statusMessage: '' };
 const balanceObj = () => ({ amount: Math.round(balance * API), currency: CURRENCY });
 
 // Cost multiplier charged per bet mode (matches the app's betModeMeta).
-const MODE_COST: Record<string, number> = { BASE: 1, BONUS: 100 };
-const BONUS_MODES = ['BONUS', 'SUPER'];
+const MODE_COST: Record<string, number> = { BASE: 1, RAID: 60, EXPEDITION: 120, RAGNAROK: 360 };
+
+// Split the bonus rounds into per-tier pools by their enterBonus "reason", so each
+// buyable tier serves the matching bonus rounds.
+const tierPool = (reason: string): Pool => {
+	const rounds: Round[] = [];
+	const weights: number[] = [];
+	data.bonus.rounds.forEach((round, i) => {
+		const isTier = (round.events as any[]).some(
+			(e) => e && e.type === 'enterBonus' && e.reason === reason,
+		);
+		if (isTier) {
+			rounds.push(round);
+			weights.push(data.bonus.weights[i]);
+		}
+	});
+	return rounds.length ? { rounds, weights } : data.bonus;
+};
+const TIER_POOLS: Record<string, Pool> = {
+	RAID: tierPool('raid'),
+	EXPEDITION: tierPool('expedition'),
+	RAGNAROK: tierPool('ragnarok'),
+};
+
 const pickWeighted = (mode: string): Round => {
-	const pool = BONUS_MODES.includes(mode.toUpperCase()) ? data.bonus : data.base;
+	const pool = TIER_POOLS[mode.toUpperCase()] || data.base;
 	const { rounds, weights } = pool;
 	let total = 0;
 	for (const w of weights) total += w;
