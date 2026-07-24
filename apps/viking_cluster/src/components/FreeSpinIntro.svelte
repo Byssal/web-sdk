@@ -34,7 +34,11 @@
 			// }
 			// freeSpinsFromEvent = emitterEvent.extraSpins ?? emitterEvent.totalFreeSpins;
 			freeSpinsFromEvent = emitterEvent.totalFreeSpins;
-			await waitForResolve((resolve) => (oncomplete = resolve));
+			// auto-continue after a few seconds so autoplay never hangs; a tap skips early
+			await Promise.race([
+				waitForResolve((resolve) => (oncomplete = resolve)),
+				new Promise((resolve) => setTimeout(resolve, 3000)),
+			]);
 		},
 	});
 </script>

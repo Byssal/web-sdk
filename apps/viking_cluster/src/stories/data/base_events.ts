@@ -163,61 +163,15 @@ export default {
     "type": "finalWin",
     "amount": 0
   },
-  "updateGrid": {
-    "index": 1,
-    "type": "updateGrid",
-    "gridMultipliers": [
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        3
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        20
-      ]
-    ]
-  },
   "winInfo": {
-    "index": 2,
+    "index": 1,
     "type": "winInfo",
-    "totalWin": 1820,
+    "totalWin": 70,
     "wins": [
       {
         "symbol": "L1",
         "clusterSize": 5,
-        "win": 1820,
+        "win": 70,
         "positions": [
           {
             "reel": 1,
@@ -242,7 +196,7 @@ export default {
         ],
         "meta": {
           "globalMult": 1,
-          "clusterMult": 26,
+          "clusterMult": 1,
           "winWithoutMult": 70,
           "overlay": {
             "reel": 2,
@@ -253,12 +207,12 @@ export default {
     ]
   },
   "updateTumbleWin": {
-    "index": 3,
+    "index": 2,
     "type": "updateTumbleWin",
-    "amount": 1820
+    "amount": 70
   },
   "tumbleBoard": {
-    "index": 4,
+    "index": 3,
     "type": "tumbleBoard",
     "newSymbols": [
       [],
@@ -310,10 +264,56 @@ export default {
     ]
   },
   "setWin": {
-    "index": 5,
+    "index": 4,
     "type": "setWin",
-    "amount": 1820,
-    "winLevel": 6
+    "amount": 70,
+    "winLevel": 2
+  },
+  "updateGrid": {
+    "index": 4,
+    "type": "updateGrid",
+    "gridMultipliers": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
   },
   "freeSpinTrigger": {
     "index": 2,
@@ -345,27 +345,27 @@ export default {
     "total": 10
   },
   "freeSpinEnd": {
-    "index": 59,
+    "index": 62,
     "type": "freeSpinEnd",
-    "amount": 18240,
-    "winLevel": 7
+    "amount": 2020,
+    "winLevel": 5
   },
   "freeSpinRetrigger": {
-    "index": 38,
+    "index": 15,
     "type": "freeSpinRetrigger",
     "totalFs": 13,
     "positions": [
       {
-        "reel": 1,
-        "row": 3
+        "reel": 2,
+        "row": 2
       },
       {
         "reel": 3,
-        "row": 1
+        "row": 6
       },
       {
         "reel": 4,
-        "row": 5
+        "row": 2
       }
     ]
   },

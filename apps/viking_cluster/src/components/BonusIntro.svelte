@@ -30,7 +30,11 @@
 		bonusIntroShow: async (emitterEvent) => {
 			tier = emitterEvent.tier;
 			show = true;
-			await waitForResolve((resolve) => (oncomplete = resolve));
+			// auto-continue after a short delay so autoplay never hangs; a tap skips early
+			await Promise.race([
+				waitForResolve((resolve) => (oncomplete = resolve)),
+				new Promise((resolve) => setTimeout(resolve, 2200)),
+			]);
 			show = false;
 		},
 	});

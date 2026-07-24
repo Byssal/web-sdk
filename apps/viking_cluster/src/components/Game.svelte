@@ -63,14 +63,16 @@
 		<Sound />
 
 		<MainContainer>
+			<!-- logo sits just above the frame top (anchored at its bottom so it's never clipped) -->
 			<Sprite
 				key="vikingLogo"
-				anchor={{ x: 0.5, y: 0.5 }}
+				anchor={{ x: 0.5, y: 1 }}
 				x={context.stateGameDerived.boardLayout().x}
 				y={context.stateGameDerived.boardLayout().y -
-					context.stateGameDerived.boardLayout().height * 0.95}
-				width={context.stateGameDerived.boardLayout().width * 1.25}
-				height={(context.stateGameDerived.boardLayout().width * 1.25 * 420) / 1200}
+					(context.stateGameDerived.boardLayout().width * 1.13 * 720) / 600 / 2 -
+					6}
+				width={context.stateGameDerived.boardLayout().width * 1.15}
+				height={(context.stateGameDerived.boardLayout().width * 1.15 * 420) / 1200}
 			/>
 		</MainContainer>
 

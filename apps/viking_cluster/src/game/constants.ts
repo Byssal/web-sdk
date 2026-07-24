@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import type { RawSymbol, SymbolState, SymbolInfo } from './types';
 
-export const SYMBOL_SIZE = 80;
+export const SYMBOL_SIZE = 66;
 
 export const REEL_PADDING = 0.53;
 
@@ -98,13 +98,16 @@ const sStatic: SymbolInfo = { type: 'sprite', assetKey: 'vs', sizeRatios: { widt
 const wStatic: SymbolInfo = { type: 'sprite', assetKey: 'vw', sizeRatios: { width: 1.1, height: 1.1 } };
 
 function allStates(base: SymbolInfo) {
+	// Each state must be a DISTINCT object: the win animation waits for the symbol
+	// to signal completion, which only fires when `symbolInfo` changes reference on
+	// a state transition. Shared references would make winning spins hang forever.
 	return {
-		explosion: base,
-		win: base,
-		postWinStatic: base,
-		static: base,
-		spin: base,
-		land: base,
+		explosion: { ...base },
+		win: { ...base },
+		postWinStatic: { ...base },
+		static: { ...base },
+		spin: { ...base },
+		land: { ...base },
 	};
 }
 

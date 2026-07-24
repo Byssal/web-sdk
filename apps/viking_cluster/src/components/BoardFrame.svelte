@@ -11,11 +11,11 @@
 
 	const context = getContext();
 
-	// The frame art is 760x1000 (portrait). Size it a bit larger than the board so
-	// the 5x6 grid sits inside its opening (fixes symbols overflowing top/bottom).
-	const FRAME_RATIO = 1000 / 760;
-	const MARGIN = 1.32;
-	const frameWidth = $derived(context.stateGameDerived.boardLayout().width * MARGIN);
+	// Frame art is 600x720 (5:6, same aspect as the board). A small MARGIN makes it
+	// hug the symbols so the grid sits flush ("à fleur") inside the opening.
+	const FRAME_RATIO = 720 / 600;
+	const FRAME_MARGIN = 1.13;
+	const frameWidth = $derived(context.stateGameDerived.boardLayout().width * FRAME_MARGIN);
 </script>
 
 <Sprite

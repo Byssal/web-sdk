@@ -31,8 +31,10 @@ let pendingWin = 0;
 const okStatus = { statusCode: 'OK', statusMessage: '' };
 const balanceObj = () => ({ amount: Math.round(balance * API), currency: CURRENCY });
 
+// Any "buy" mode (BONUS / SUPER) serves a bonus round; everything else is a base spin.
+const BONUS_MODES = ['BONUS', 'SUPER'];
 const pickWeighted = (mode: string): Round => {
-	const pool = mode.toUpperCase() === 'BONUS' ? data.bonus : data.base;
+	const pool = BONUS_MODES.includes(mode.toUpperCase()) ? data.bonus : data.base;
 	const { rounds, weights } = pool;
 	let total = 0;
 	for (const w of weights) total += w;
@@ -86,7 +88,9 @@ const handle = (url: string, body: any): Response => {
 		const mode = String(body?.mode || 'BASE');
 		balance = Math.max(0, balance - amount);
 		const round = pickWeighted(mode);
-		pendingWin = (round.payoutMultiplier || 0) * amount;
+		// The math-sdk stores payoutMultiplier scaled x100 (e.g. 1000 = 10.00x),
+		// so divide by 100 to get the real multiplier before crediting the win.
+		pendingWin = ((round.payoutMultiplier || 0) / 100) * amount;
 		return json({
 			status: okStatus,
 			balance: balanceObj(), // balance AFTER the bet is taken; win credited at end-round
