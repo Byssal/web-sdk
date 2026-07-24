@@ -14,8 +14,9 @@
 	import { SYMBOL_SIZE } from '../game/constants';
 
 	const context = getContext();
-	// 5 reels (columns) x 6 rows
+	// 6 reels (columns) x 6 rows
 	const DEFAULT_GRID = [
+		[0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0],

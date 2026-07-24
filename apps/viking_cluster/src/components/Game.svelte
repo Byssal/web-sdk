@@ -73,10 +73,10 @@
 				anchor={{ x: 0.5, y: 1 }}
 				x={context.stateGameDerived.boardLayout().x}
 				y={context.stateGameDerived.boardLayout().y -
-					(context.stateGameDerived.boardLayout().width * 1.13 * 720) / 600 / 2 -
+					(context.stateGameDerived.boardLayout().width * 1.13) / 2 -
 					6}
-				width={context.stateGameDerived.boardLayout().width * 1.15}
-				height={(context.stateGameDerived.boardLayout().width * 1.15 * 420) / 1200}
+				width={context.stateGameDerived.boardLayout().width * 1.1}
+				height={(context.stateGameDerived.boardLayout().width * 1.1 * 420) / 1200}
 			/>
 		</MainContainer>
 

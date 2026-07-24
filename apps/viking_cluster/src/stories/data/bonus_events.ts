@@ -86,24 +86,49 @@ export default {
       ],
       [
         {
-          "name": "L2"
+          "name": "L1"
+        },
+        {
+          "name": "L3"
         },
         {
           "name": "L4"
         },
         {
-          "name": "H3"
+          "name": "H1"
         },
         {
-          "name": "W",
-          "wild": true
+          "name": "H4"
+        },
+        {
+          "name": "L3"
+        },
+        {
+          "name": "H1"
+        },
+        {
+          "name": "L1"
+        }
+      ],
+      [
+        {
+          "name": "H4"
+        },
+        {
+          "name": "L1"
+        },
+        {
+          "name": "H1"
+        },
+        {
+          "name": "L1"
         },
         {
           "name": "S",
           "scatter": true
         },
         {
-          "name": "L1"
+          "name": "L3"
         },
         {
           "name": "L3"
@@ -118,25 +143,25 @@ export default {
           "wild": true
         },
         {
-          "name": "L2"
-        },
-        {
           "name": "L3"
         },
         {
           "name": "L3"
         },
         {
-          "name": "L4"
+          "name": "H4"
+        },
+        {
+          "name": "L3"
         },
         {
           "name": "H2"
         },
         {
-          "name": "L4"
+          "name": "H1"
         },
         {
-          "name": "L2"
+          "name": "L1"
         }
       ]
     ],
@@ -144,8 +169,9 @@ export default {
       191,
       7,
       131,
-      67,
-      228
+      228,
+      143,
+      213
     ],
     "gameType": "basegame",
     "anticipation": [
@@ -153,7 +179,8 @@ export default {
       0,
       0,
       1,
-      2
+      2,
+      3
     ]
   },
   "setTotalWin": {
@@ -175,7 +202,7 @@ export default {
         "row": 1
       },
       {
-        "reel": 3,
+        "reel": 4,
         "row": 4
       }
     ]
@@ -192,15 +219,19 @@ export default {
     "globalMult": 1
   },
   "winInfo": {
-    "index": 11,
+    "index": 7,
     "type": "winInfo",
-    "totalWin": 280,
+    "totalWin": 50,
     "wins": [
       {
         "symbol": "L2",
-        "clusterSize": 8,
-        "win": 280,
+        "clusterSize": 5,
+        "win": 50,
         "positions": [
+          {
+            "reel": 0,
+            "row": 3
+          },
           {
             "reel": 1,
             "row": 3
@@ -210,34 +241,18 @@ export default {
             "row": 3
           },
           {
+            "reel": 3,
+            "row": 3
+          },
+          {
             "reel": 2,
             "row": 2
-          },
-          {
-            "reel": 2,
-            "row": 1
-          },
-          {
-            "reel": 2,
-            "row": 4
-          },
-          {
-            "reel": 3,
-            "row": 4
-          },
-          {
-            "reel": 4,
-            "row": 4
-          },
-          {
-            "reel": 4,
-            "row": 3
           }
         ],
         "meta": {
-          "globalMult": 2,
+          "globalMult": 1,
           "clusterMult": 1,
-          "winWithoutMult": 140,
+          "winWithoutMult": 50,
           "overlay": {
             "reel": 2,
             "row": 3
@@ -247,18 +262,34 @@ export default {
     ]
   },
   "updateTumbleWin": {
-    "index": 12,
+    "index": 8,
     "type": "updateTumbleWin",
-    "amount": 280
+    "amount": 50
   },
   "updateGrid": {
-    "index": 13,
+    "index": 9,
     "type": "updateGrid",
     "gridMultipliers": [
       [
         0,
         0,
+        1,
         0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
         0,
         0,
         0
@@ -272,10 +303,10 @@ export default {
         0
       ],
       [
-        1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
+        0,
         0,
         0
       ],
@@ -283,28 +314,24 @@ export default {
         0,
         0,
         0,
-        1,
         0,
-        0
-      ],
-      [
-        0,
-        0,
-        1,
-        1,
         0,
         0
       ]
     ]
   },
   "tumbleBoard": {
-    "index": 14,
+    "index": 10,
     "type": "tumbleBoard",
     "newSymbols": [
-      [],
       [
         {
-          "name": "L3"
+          "name": "L2"
+        }
+      ],
+      [
+        {
+          "name": "L1"
         }
       ],
       [
@@ -312,31 +339,23 @@ export default {
           "name": "L2"
         },
         {
+          "name": "L4"
+        }
+      ],
+      [
+        {
           "name": "S",
           "scatter": true
-        },
-        {
-          "name": "L4"
-        },
-        {
-          "name": "L4"
         }
       ],
-      [
-        {
-          "name": "H4"
-        }
-      ],
-      [
-        {
-          "name": "L4"
-        },
-        {
-          "name": "H4"
-        }
-      ]
+      [],
+      []
     ],
     "explodingSymbols": [
+      {
+        "reel": 0,
+        "row": 3
+      },
       {
         "reel": 1,
         "row": 3
@@ -350,23 +369,7 @@ export default {
         "row": 2
       },
       {
-        "reel": 2,
-        "row": 1
-      },
-      {
-        "reel": 2,
-        "row": 4
-      },
-      {
         "reel": 3,
-        "row": 4
-      },
-      {
-        "reel": 4,
-        "row": 4
-      },
-      {
-        "reel": 4,
         "row": 3
       }
     ]
@@ -374,37 +377,37 @@ export default {
   "setWin": {
     "index": 15,
     "type": "setWin",
-    "amount": 280,
-    "winLevel": 4
-  },
-  "freeSpinEnd": {
-    "index": 55,
-    "type": "freeSpinEnd",
-    "amount": 2070,
-    "winLevel": 5
-  },
-  "finalWin": {
-    "index": 56,
-    "type": "finalWin",
-    "amount": 2070
+    "amount": 70,
+    "winLevel": 2
   },
   "freeSpinRetrigger": {
-    "index": 18,
+    "index": 17,
     "type": "freeSpinRetrigger",
     "totalFs": 12,
     "positions": [
       {
-        "reel": 2,
-        "row": 2
+        "reel": 0,
+        "row": 3
       },
       {
         "reel": 3,
-        "row": 6
+        "row": 2
       },
       {
         "reel": 4,
-        "row": 2
+        "row": 3
       }
     ]
+  },
+  "freeSpinEnd": {
+    "index": 104,
+    "type": "freeSpinEnd",
+    "amount": 13780,
+    "winLevel": 7
+  },
+  "finalWin": {
+    "index": 105,
+    "type": "finalWin",
+    "amount": 13780
   }
 } as any;

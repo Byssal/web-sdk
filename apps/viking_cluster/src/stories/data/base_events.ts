@@ -135,6 +135,33 @@ export default {
         {
           "name": "L3"
         }
+      ],
+      [
+        {
+          "name": "H3"
+        },
+        {
+          "name": "L2"
+        },
+        {
+          "name": "L4"
+        },
+        {
+          "name": "L1"
+        },
+        {
+          "name": "L2"
+        },
+        {
+          "name": "W",
+          "wild": true
+        },
+        {
+          "name": "L4"
+        },
+        {
+          "name": "L2"
+        }
       ]
     ],
     "paddingPositions": [
@@ -142,10 +169,12 @@ export default {
       205,
       195,
       16,
-      65
+      65,
+      30
     ],
     "gameType": "basegame",
     "anticipation": [
+      0,
       0,
       0,
       0,
@@ -166,41 +195,45 @@ export default {
   "winInfo": {
     "index": 1,
     "type": "winInfo",
-    "totalWin": 70,
+    "totalWin": 140,
     "wins": [
       {
-        "symbol": "L1",
-        "clusterSize": 5,
-        "win": 70,
+        "symbol": "L2",
+        "clusterSize": 6,
+        "win": 140,
         "positions": [
           {
             "reel": 1,
-            "row": 6
+            "row": 3
           },
           {
             "reel": 2,
-            "row": 6
+            "row": 3
+          },
+          {
+            "reel": 2,
+            "row": 2
           },
           {
             "reel": 3,
-            "row": 6
+            "row": 2
           },
           {
             "reel": 4,
-            "row": 6
+            "row": 2
           },
           {
-            "reel": 2,
-            "row": 5
+            "reel": 4,
+            "row": 1
           }
         ],
         "meta": {
           "globalMult": 1,
           "clusterMult": 1,
-          "winWithoutMult": 70,
+          "winWithoutMult": 140,
           "overlay": {
-            "reel": 2,
-            "row": 6
+            "reel": 3,
+            "row": 2
           }
         }
       }
@@ -209,7 +242,7 @@ export default {
   "updateTumbleWin": {
     "index": 2,
     "type": "updateTumbleWin",
-    "amount": 70
+    "amount": 140
   },
   "updateGrid": {
     "index": 3,
@@ -226,18 +259,34 @@ export default {
       [
         0,
         0,
+        1,
         0,
         0,
-        0,
-        1
+        0
       ],
       [
-        0,
-        0,
-        0,
         0,
         1,
-        1
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
       ],
       [
         0,
@@ -245,15 +294,7 @@ export default {
         0,
         0,
         0,
-        1
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        1
+        0
       ]
     ]
   },
@@ -264,12 +305,12 @@ export default {
       [],
       [
         {
-          "name": "L2"
+          "name": "H4"
         }
       ],
       [
         {
-          "name": "L2"
+          "name": "L1"
         },
         {
           "name": "L1"
@@ -277,43 +318,51 @@ export default {
       ],
       [
         {
-          "name": "L3"
+          "name": "L1"
         }
       ],
       [
         {
+          "name": "L2"
+        },
+        {
           "name": "L3"
         }
-      ]
+      ],
+      []
     ],
     "explodingSymbols": [
       {
         "reel": 1,
-        "row": 6
+        "row": 3
       },
       {
         "reel": 2,
-        "row": 6
+        "row": 3
       },
       {
         "reel": 2,
-        "row": 5
+        "row": 2
       },
       {
         "reel": 3,
-        "row": 6
+        "row": 2
       },
       {
         "reel": 4,
-        "row": 6
+        "row": 2
+      },
+      {
+        "reel": 4,
+        "row": 1
       }
     ]
   },
   "setWin": {
     "index": 5,
     "type": "setWin",
-    "amount": 70,
-    "winLevel": 2
+    "amount": 140,
+    "winLevel": 3
   },
   "freeSpinTrigger": {
     "index": 2,
@@ -329,11 +378,11 @@ export default {
         "row": 3
       },
       {
-        "reel": 3,
+        "reel": 4,
         "row": 1
       },
       {
-        "reel": 4,
+        "reel": 5,
         "row": 3
       }
     ]
@@ -350,27 +399,27 @@ export default {
     "globalMult": 1
   },
   "freeSpinEnd": {
-    "index": 91,
+    "index": 111,
     "type": "freeSpinEnd",
-    "amount": 8130,
-    "winLevel": 6
+    "amount": 15740,
+    "winLevel": 7
   },
   "freeSpinRetrigger": {
-    "index": 18,
+    "index": 26,
     "type": "freeSpinRetrigger",
     "totalFs": 12,
     "positions": [
       {
+        "reel": 1,
+        "row": 3
+      },
+      {
         "reel": 2,
-        "row": 2
+        "row": 5
       },
       {
         "reel": 3,
-        "row": 6
-      },
-      {
-        "reel": 4,
-        "row": 2
+        "row": 1
       }
     ]
   }

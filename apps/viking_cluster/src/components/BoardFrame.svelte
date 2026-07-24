@@ -11,9 +11,9 @@
 
 	const context = getContext();
 
-	// Frame art is 600x720 (5:6, same aspect as the board). A small MARGIN makes it
-	// hug the symbols so the grid sits flush ("à fleur") inside the opening.
-	const FRAME_RATIO = 720 / 600;
+	// Frame art is 720x720 (square, same aspect as the 6x6 board). A small MARGIN
+	// makes it hug the symbols so the grid sits flush ("à fleur") inside the opening.
+	const FRAME_RATIO = 720 / 720;
 	const FRAME_MARGIN = 1.13;
 	const frameWidth = $derived(context.stateGameDerived.boardLayout().width * FRAME_MARGIN);
 </script>

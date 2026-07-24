@@ -3,8 +3,8 @@ export default {
 	gameName: 'viking_cluster_raid',
 	gameID: '0_0_viking_cluster',
 	rtp: 0.967,
-	numReels: 5,
-	numRows: [6, 6, 6, 6, 6],
+	numReels: 6,
+	numRows: [6, 6, 6, 6, 6, 6],
 	betModes: {
 		base: {
 			cost: 1.0,
