@@ -5,7 +5,7 @@
 	import { EnableHotkey } from 'components-shared';
 	import { MainContainer } from 'components-layout';
 	import { App, Sprite } from 'pixi-svelte';
-	import { stateModal } from 'state-shared';
+	import { stateModal, stateBet } from 'state-shared';
 
 	import { UI, UiGameName } from 'components-ui-pixi';
 	import { GameVersion, Modals } from 'components-ui-html';
@@ -37,8 +37,12 @@
 	onMount(() => (context.stateLayout.showLoadingScreen = true));
 
 	context.eventEmitter.subscribeOnMount({
+		// One-click buy: skip the extra confirmation dialog and purchase directly.
+		// This game only has one buy mode (BONUS).
 		buyBonusConfirm: () => {
-			stateModal.modal = { name: 'buyBonusConfirm' };
+			stateBet.activeBetModeKey = 'BONUS';
+			stateModal.modal = null;
+			context.eventEmitter.broadcast({ type: 'bet' });
 		},
 	});
 </script>

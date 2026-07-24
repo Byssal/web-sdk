@@ -318,7 +318,7 @@ export default {
   "freeSpinTrigger": {
     "index": 2,
     "type": "freeSpinTrigger",
-    "totalFs": 10,
+    "totalFs": 12,
     "positions": [
       {
         "reel": 0,
@@ -342,18 +342,23 @@ export default {
     "index": 4,
     "type": "updateFreeSpin",
     "amount": 1,
-    "total": 10
+    "total": 12
+  },
+  "updateGlobalMult": {
+    "index": 6,
+    "type": "updateGlobalMult",
+    "globalMult": 1
   },
   "freeSpinEnd": {
-    "index": 63,
+    "index": 91,
     "type": "freeSpinEnd",
-    "amount": 6490,
+    "amount": 8130,
     "winLevel": 6
   },
   "freeSpinRetrigger": {
-    "index": 17,
+    "index": 18,
     "type": "freeSpinRetrigger",
-    "totalFs": 13,
+    "totalFs": 12,
     "positions": [
       {
         "reel": 2,
@@ -368,10 +373,5 @@ export default {
         "row": 2
       }
     ]
-  },
-  "updateGlobalMult": {
-    "index": 0,
-    "type": "updateGlobalMult",
-    "globalMult": 2
   }
 } as any;

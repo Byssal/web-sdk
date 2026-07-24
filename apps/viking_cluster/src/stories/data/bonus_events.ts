@@ -186,15 +186,20 @@ export default {
     "amount": 1,
     "total": 8
   },
+  "updateGlobalMult": {
+    "index": 6,
+    "type": "updateGlobalMult",
+    "globalMult": 1
+  },
   "winInfo": {
-    "index": 9,
+    "index": 11,
     "type": "winInfo",
-    "totalWin": 140,
+    "totalWin": 280,
     "wins": [
       {
         "symbol": "L2",
         "clusterSize": 8,
-        "win": 140,
+        "win": 280,
         "positions": [
           {
             "reel": 1,
@@ -230,7 +235,7 @@ export default {
           }
         ],
         "meta": {
-          "globalMult": 1,
+          "globalMult": 2,
           "clusterMult": 1,
           "winWithoutMult": 140,
           "overlay": {
@@ -242,12 +247,12 @@ export default {
     ]
   },
   "updateTumbleWin": {
-    "index": 10,
+    "index": 12,
     "type": "updateTumbleWin",
-    "amount": 140
+    "amount": 280
   },
   "updateGrid": {
-    "index": 11,
+    "index": 13,
     "type": "updateGrid",
     "gridMultipliers": [
       [
@@ -293,7 +298,7 @@ export default {
     ]
   },
   "tumbleBoard": {
-    "index": 12,
+    "index": 14,
     "type": "tumbleBoard",
     "newSymbols": [
       [],
@@ -367,26 +372,26 @@ export default {
     ]
   },
   "setWin": {
-    "index": 13,
+    "index": 15,
     "type": "setWin",
-    "amount": 140,
-    "winLevel": 3
-  },
-  "freeSpinEnd": {
-    "index": 47,
-    "type": "freeSpinEnd",
-    "amount": 1860,
+    "amount": 280,
     "winLevel": 4
   },
+  "freeSpinEnd": {
+    "index": 55,
+    "type": "freeSpinEnd",
+    "amount": 2070,
+    "winLevel": 5
+  },
   "finalWin": {
-    "index": 48,
+    "index": 56,
     "type": "finalWin",
-    "amount": 1860
+    "amount": 2070
   },
   "freeSpinRetrigger": {
-    "index": 17,
+    "index": 18,
     "type": "freeSpinRetrigger",
-    "totalFs": 13,
+    "totalFs": 12,
     "positions": [
       {
         "reel": 2,
@@ -401,10 +406,5 @@ export default {
         "row": 2
       }
     ]
-  },
-  "updateGlobalMult": {
-    "index": 0,
-    "type": "updateGlobalMult",
-    "globalMult": 2
   }
 } as any;
